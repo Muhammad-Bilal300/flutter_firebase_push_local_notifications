@@ -5,11 +5,13 @@ import 'package:flutter/services.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:my_app/red.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:my_app/services/local_notification_services.dart';
 import 'package:my_app/signIn.dart';
 import 'package:my_app/translations/codegen_loader.g.dart';
 import 'firebase_options.dart';
 
 import 'green.dart';
+
 // Receive message when the app is in background solution for on Message
 Future<void> backgroundHandler(RemoteMessage message) async {
   print(message.data.toString());
@@ -19,6 +21,7 @@ Future<void> backgroundHandler(RemoteMessage message) async {
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
+
   SystemChrome.setPreferredOrientations(
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
   await Firebase.initializeApp(
@@ -85,8 +88,9 @@ class _MyHomePageState extends State<MyHomePage> {
     // TODO: implement initState
     super.initState();
 
-    // FirebaseMessaging.instance.getInitialMessage();
+    LocalNotificationServices.initialize(context);
 
+    // FirebaseMessaging.instance.getInitialMessage();
 
 // Gives you the message on which user taps and it gives the app from terminatedState
     FirebaseMessaging.instance.getInitialMessage().then((message) {
@@ -102,6 +106,8 @@ class _MyHomePageState extends State<MyHomePage> {
         print(message.notification!.title);
         print(message.notification!.body);
       }
+// This work for heads of notification for both when the app is in foreground or in background
+      LocalNotificationServices.display(message);
     });
 
 // When the app is in background but opened and user taps on the notification

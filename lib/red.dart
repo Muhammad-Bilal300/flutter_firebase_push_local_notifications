@@ -5,11 +5,13 @@ class RedPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Center(
-        child: Text(
-          "This is a Red Page",
-          style: TextStyle(fontSize: 30),
+    return Scaffold(
+      body: Container(
+        child: Center(
+          child: Text(
+            "This is a Red Page",
+            style: TextStyle(fontSize: 30),
+          ),
         ),
       ),
     );
