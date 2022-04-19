@@ -1,0 +1,14 @@
+{
+    "Demo_Application": "تطبيق تجريبي",
+    "Login_Page": "صفحة تسجيل الدخول",
+    "Email": "بريد الالكتروني",
+    "Password": "كلمه السر",
+    "Login": "تسجيل الدخول",
+    "Dont have an Account" : "ليس لديك حساب",
+    "Signup" : "اشتراك",
+    "Or_Sign_In_With": "أو قم بتسجيل الدخول باستخدام",
+    "Signup_Page": "صفحة التسجيل",
+    "Name": "اسم",
+    "Confirm_Password": "تأكيد كلمة المرور",
+    "Already_have_an_Account": "هل لديك حساب"
+}
